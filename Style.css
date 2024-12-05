@@ -1,0 +1,1039 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: aqua;
+    --background-color: rgb(41, 41, 199);
+    --dark-color: black;
+    --light-color: #fff7f7f8;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.imagen-logo {
+    width: 70px;
+    margin-right: 10px;
+}
+
+
+/* Contenedor principal para usuario y carrito */
+.container-user {
+    display: flex; /* Organiza íconos en fila */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 20px; /* Espaciado entre íconos */
+    margin-top: 20px;
+}
+
+/* Estilos para los íconos de usuario y carrito */
+.user-icon, .shopping-cart-icon {
+    width: 40px;
+    height: 40px; /* Asegura que el ícono sea cuadrado */
+    cursor: pointer;
+    transition: transform 0.2s; /* Animación al pasar el mouse */
+}
+
+.user-icon:hover, .shopping-cart-icon:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
+}
+
+/* Estilos para los popups (login y carrito) */
+.login-popup, .cart-popup {
+    position: static; /* Cambiar a fixed si necesitas que sean flotantes */
+    margin-top: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    padding: 20px 25px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+/* Títulos de los popups */
+.login-popup h2, .cart-popup h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo para etiquetas y entradas en el formulario */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+/* Botón de login */
+.login-button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo general para enlaces */
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Tabla del carrito */
+.lista-shopping {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.lista-shopping th, .lista-shopping td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.lista-shopping th {
+    background-color: #007bff;
+    color: white;
+}
+
+.lista-shopping td {
+    background-color: #f9f9f9;
+}
+
+/* Botón para vaciar el carrito */
+.empty-basket {
+    display: inline-block;
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.empty-basket:hover {
+    background-color: #a71d2a;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: rgb(21, 45, 177); /* Color de fondo */
+}
+
+.bars {
+    width: 30px; /* Tamaño adecuado para el ícono de menú */
+    height: 30px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 40%; /* Reduce el ancho del menú */
+    height: 40px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: rgb(245, 243, 243);
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    width: 15rem; /* Ajuste del ancho de la línea debajo */
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    bottom: -3px; /* Corrige el valor de bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Asegura que esté centrado */
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover::after {
+    opacity: 1; /* Muestra la línea al hacer hover */
+}
+
+.menu a:hover {
+    color: aqua; /* Color de texto al hacer hover */
+}
+
+.search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 2rem;
+    background-color: white;
+    height: 2rem;
+    overflow: hidden;
+}
+
+.search-form input {
+    outline: none;
+    font-family: inherit;
+    border: none;
+    width: 25rem;
+    font-size: 1.4rem;
+    padding: 0 2rem;
+    color: rgb(21, 45, 177); /* Color del texto en el input */
+    cursor: pointer;
+}
+
+.search-form .btn-search {
+    border: none;
+    background-color: rgb(21, 45, 177);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.btn-search i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.btn-search img.buscar {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+
+/* Estilos para el carrusel */
+.carrousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.conteCarrousel {
+    display: flex;
+    width: 400%;
+    height: 300px;
+    transition: all 0.5s ease;
+}
+
+.itemCarrousel {
+    width: 25%;
+    position: relative;
+}
+
+.itemCarrouselTarjeta {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemCarrouselTarjeta img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Estilos para las flechas de navegación */
+.itemCarrouselArrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.itemCarrouselArrows a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.itemCarrouselArrows a:hover {
+    color: #ccc;
+}
+
+.prev-arrow,
+.next-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(7, 3, 54, 0.7);
+    border-radius: 50%;
+}
+
+.prev-arrow:hover,
+.next-arrow:hover {
+    background-color: rgba(7, 3, 54, 0.7);
+}
+
+/* Section Styles */
+.conteCarrouselController {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.conteCarrouselController .circle {
+    display: block;
+    width: 140px;
+    height: 140px;
+    margin: 0 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.conteCarrouselController .circle.active {
+    background-color: aqua;
+}
+
+
+/* Section Styles */
+.contenedor {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid white;
+}
+
+.txt-1, .txt-2 {
+    flex: 1;
+    padding: 20px;
+}
+
+.linea {
+    width: 2px;
+    background-color: #050505;
+    height: auto;
+}
+
+.ima {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.imagen1 {
+    margin-right: 90px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.imagen2 {
+    margin-left: 90px;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.imagenes {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.imagen3 {
+    margin-right: 90px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.imagen4 {
+    margin-left: 90px;
+    width: 400px;
+    height: 400px;
+}
+
+.contactInfo {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contactInfo h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.contactInfo p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.contactInfo i {
+    margin-right: 10px;
+    color: #00bfa5;
+    font-size: 1.5em;
+}
+
+.contactInfo a {
+    color: #00bfa5;
+    text-decoration: none;
+}
+
+.contactInfo a:hover {
+    text-decoration: underline;
+}
+
+.onlineButton {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.onlineButton button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.onlineButton button:hover {
+    background-color: #0056b3;
+}
+
+.coupons {
+    margin-top: 30px;
+}
+
+.coupons h3 {
+    font-size:  1.5em;
+    color: #333;
+}
+
+.coupons p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.coupons .coupon-code {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.footer {
+    background-color: rgb(21, 45, 177);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.footer a {
+    color: aqua;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+.about-us-section {
+    background-color: white; /* Color de fondo suave */
+    padding: 50px 20px; /* Espaciado superior e inferior */
+}
+
+.about-us-section {
+    background-color: write; /* Color de fondo suave */
+    padding: 50px 20px; /* Espaciado superior e inferior */
+}
+
+.about-us-container {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: stretch; /* Alinear elementos para que ocupen toda la altura */
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+}
+
+.txt1-1 {
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 20px; /* Espaciado interno */
+    z-index: 1; /* Asegurar que esté al frente */
+    position: relative; /* Habilitar posicionamiento relativo */
+}
+
+.linea-1 {
+    width: 2px; /* Ancho de la línea divisoria */
+    background-color: #050505; /* Color de la línea */
+    height: auto; /* Ajustar la altura automáticamente */
+    min-height: 100px; /* Establecer una altura mínima para que sea visible */
+    margin: 0 10px; /* Espaciado lateral */
+}
+
+.txt1-2 {
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 20px; /* Espaciado interno */
+    z-index: 1; /* Asegurar que esté al frente */
+    position: relative; /* Habilitar posicionamiento relativo */
+    text-align: right; /* Alinear texto a la derecha */
+}
+
+hr {
+    border: none; /* Sin borde */
+    height: 2px; /* Altura de la línea */
+    background-color: #0a0a0a; /* Color de la línea */
+    margin-top: 40px; /* Espaciado superior */
+}
+
+.txt-3{
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 20px; /* Espaciado interno */
+    z-index: 1; /* Asegurar que esté al frente */
+    position: relative; /* Habilitar posicionamiento relativo */
+}
+
+.txt-4{
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 20px; /* Espaciado interno */
+    z-index: 1; /* Asegurar que esté al frente */
+    position: relative; /* Habilitar posicionamiento relativo */
+    text-align: right; /* Alinear texto a la derecha */
+}
+
+.imagenes1-1 {
+    display: flex; /* Usar flexbox para alinear las imágenes */
+    justify-content: center; /* Centrar las imágenes horizontalmente */
+    align-items: center; /* Centrar las imágenes verticalmente */
+    position: relative; /* Habilitar posicionamiento relativo */
+    z-index: 1; /* Asegurar que esté al frente */
+}
+
+.imagen-1-1, .imagen-2-2 {
+    width: 400px; /* Establecer un ancho fijo */
+    height: auto; /* Mantener la proporción de la imagen */
+    max-height: 400px; /* Establecer una altura máxima */
+    margin: 0 10px; /* Espaciado lateral entre imágenes */
+    object-fit: cover; /* Ajustar la imagen para que cubra el contenedor */
+    z-index: 2; /* Asegurar que las imágenes estén al frente */
+}
+
+.imagenes3-4 {
+    display: flex; /* Usar flexbox para alinear las imágenes */
+    justify-content: center; /* Centrar las imágenes horizontalmente */
+    align-items: center; /* Centrar las imágenes verticalmente */
+    position: relative; /* Habilitar posicionamiento relativo */
+    z-index: 1; /* Asegurar que esté al frente */
+}
+
+.imagen3-3, .imagen4-4 {
+    width: 400px; /* Establecer un ancho fijo */
+    height: auto; /* Mantener la proporción de la imagen */
+    max-height: 400px; /* Establecer una altura máxima */
+    margin: 0 10px; /* Espaciado lateral entre imágenes */
+    object-fit: cover; /* Ajustar la imagen para que cubra el contenedor */
+    z-index: 2; /* Asegurar que las imágenes estén al frente */
+}
+
+#Categories {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    margin: auto;
+}
+
+.categories-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.category-item {
+    flex: 0 0 auto;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+    padding: 10px;
+    border: 1px solid #ddd; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.category-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra al pasar el mouse */
+    transform: translateY(-5px); /* Levanta ligeramente */
+}
+
+.category-item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Crea un efecto circular */
+    transition: transform 0.3s;
+}
+
+.category-item img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+.category-item p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #2a2b2a;
+}
+
+.selected {
+    border: 2px solid #0aedf5; /* Resalta el borde con azul claro */
+    padding: 5px; /* Espaciado alrededor del cuadro */
+    background-color: #b3e0ff; /* Color de fondo azul claro cuando está seleccionada */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* ------------------------------------------------------ */
+/* Estilos para los productos y sus secciones           */
+/* ------------------------------------------------------ */
+#products, #products.cell, #products.Computers, #products.Toys, #products.Women’s clothing, #products.Gifts {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center; /* Alinear contenido al centro */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar */
+}
+
+.product-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Altura aumentada para las imágenes */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+    margin-bottom: 10px;
+}
+
+.product-imagen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+}
+
+.products-section {
+    display: none;
+}
+
+.products-section.active {
+    display: block;
+}
+
+#products-women-clothing {
+    display: block !important; /* Mostrar la sección de ropa de mujer */
+}
+
+#products-gifts {
+    display: block !important; /* Mostrar la sección de regalos */
+}
+
+/* Cuando una categoría se selecciona, esa sección se mostrará */
+#products-women-clothing.active, 
+#products-gifts.active {
+    display: block; /* Muestra la sección cuando tiene la clase 'active' */
+}
+
+/* Muestra la sección activa */
+.products-section.active {
+    display: block; /* Solo la sección activa será visible */
+}
+
+h3 {
+    font-size: 1.2em; /* Tamaño de fuente aumentado para los títulos */
+    margin: 10px 0 5px; /* Espaciado ajustado */
+    color: #333; /* Color más oscuro para mayor legibilidad */
+}
+
+p {
+    font-size: 0.9em; /* Tamaño de fuente más pequeño para el texto */
+    margin: 5px 0; /* Espaciado ajustado */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Limitar a 2 líneas */
+    overflow: hidden;
+}
+
+.price {
+    font-weight: bold;
+    color: #e91e63; /* Color para el precio */
+    font-size: 1em; /* Tamaño de fuente consistente */
+    margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3; /* Color más oscuro en hover */
+    transform: scale(1.05); /* Botón ligeramente más grande al pasar el mouse */
+}
+
+.ver-mas {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ver-mas .flecha {
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent; 
+    border-right: 5px solid transparent; 
+    border-top: 5px solid #000; /* Flecha hacia arriba */
+    margin-left: 5px;
+}
+
+
+
+
+/* Estilo general para todo el contenedor de la sección de contacto */
+.Contact-container {
+    display: flex;
+    justify-content: center; /* Centra el contenedor principal en la página */
+    align-items: center; /* Centra el contenido verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+}
+
+/* Cuadro único que contiene todo el contenido de contacto */
+.contact-box {
+    max-width: 900px; /* Ancho máximo del contenedor */
+    width: 100%; /* Ancho completo */
+    padding: 30px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Fondo suave */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centrado de texto */
+    overflow: hidden; /* Asegura que todo el contenido encaje en el cuadro */
+    margin: 0 auto;
+}
+
+/* Estilo para los elementos dentro del cuadro */
+.contact-co, .text-contact, .txt-contac2 {
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+h1, h2 {
+    color: #050505; /* Color del texto */
+}
+
+.linea {
+    border-top: 2px solid #e0e0e0; /* Línea divisoria */
+    margin: 10px 0; /* Espaciado vertical */
+}
+
+/* Estilo para los enlaces sociales */
+.txt-21 h2 {
+    font-size: 24px; /* Tamaño de fuente */
+    color: #050505; /* Color de texto */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilos de cada red social */
+.txt-22, .txt-23, .txt-24 {
+    display: flex; /* Flexbox para alinear los iconos con los enlaces */
+    align-items: center; /* Centrar los iconos verticalmente */
+    justify-content: center;
+    margin: 10px 0; /* Espaciado entre los enlaces */
+}
+
+.txt-22 i, .txt-23 i, .txt-24 i {
+    font-size: 20px; /* Tamaño de los iconos */
+    margin-right: 10px; /* Espaciado entre el icono y el texto */
+    color: #007bff; /* Color de los iconos */
+}
+
+.txt-22 img, .txt-23 img, .txt-24 img {
+    width: 20px; /* Tamaño fijo de los iconos */
+    height: 20px; /* Tamaño fijo de los iconos */
+    margin-right: 10px; /* Espaciado entre la imagen y el texto */
+}
+
+/* Formulario de contacto */
+.txt-contact1 {
+    padding: 20px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Esquinas redondeadas */
+    border: 1px solid #ddd; /* Borde */
+}
+
+table {
+    width: 100%; /* Ancho completo */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+td {
+    padding: 10px; /* Espaciado interno en celdas */
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 4px; /* Esquinas redondeadas */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+textarea {
+    resize: vertical; /* Permitir solo el cambio de tamaño vertical */
+}
+
+.send-button {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 4px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.send-button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+/* Dirección y mapa */
+.txt-contac2 {
+    display: flex; /* Flex para alinear icono y texto */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.txt-contac2 i {
+    margin-right: 10px; /* Espaciado a la derecha del icono */
+    color: #007bff; /* Color del icono */
+}
+
+img {
+    max-width: 100%; /* Asegurar que la imagen no sobresalga */
+    border-radius: 8px; /* Esquinas redondeadas */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+
+
+/* Para pantallas de 480px o menos (generalmente móviles pequeños) */
+@media only screen and (max-width: 480px) {
+    .contenedor {
+        flex-direction: column; /* Cambio de 'row' a 'column' para pantallas pequeñas */
+        justify-content: center; /* Asegura que el contenido esté centrado */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .txt-12 h1 {
+        font-size: 22px; /* Reducir el tamaño de la fuente del encabezado */
+    }
+
+    .txt-21 h2 {
+        font-size: 18px; /* Reducir el tamaño de los subtítulos */
+    }
+
+    .txt-22, .txt-23 {
+        flex-direction: column; /* Alinear los iconos y textos verticalmente */
+        align-items: center; /* Centrar los iconos y textos */
+    }
+
+    .txt-22 i, .txt-23 i {
+        font-size: 18px; /* Reducir el tamaño de los iconos */
+    }
+
+    .txt-22 img, .txt-23 img {
+        width: 18px; /* Reducir el tamaño de las imágenes */
+        height: 18px;
+    }
+
+    .send-button {
+        padding: 8px 16px; /* Reducir el tamaño del botón */
+    }
+
+    img {
+        max-width: 90%; /* Limitar el tamaño de la imagen */
+    }
+}
+
+/* Para pantallas de 768px o menos (generalmente tabletas) */
+@media only screen and (max-width: 768px) {
+    .contact div {
+        width: 100%; /* Ancho completo en pantallas medianas */
+        height: auto; /* Deja que la altura se ajuste según el contenido */
+        margin-left: 2%;
+    }
+
+    .txt-12 h1 {
+        font-size: 24px; /* Ajuste del tamaño de la fuente para tabletas */
+    }
+
+    .txt-21 h2 {
+        font-size: 20px; /* Ajuste del tamaño de los subtítulos */
+    }
+
+    .send-button {
+        padding: 10px 18px; /* Ajustar tamaño del botón */
+    }
+
+    img {
+        max-width: 80%; /* Limitar el tamaño de la imagen */
+    }
+}
+
+/* Para pantallas de 1024px o menos (generalmente laptops y pantallas grandes) */
+@media only screen and (max-width: 1024px) {
+    .h1 {
+        font-size: 5rem; /* Ajuste del tamaño de fuente del encabezado */
+    }
+
+    .contenedor {
+        font-size: 22px; /* Ajustar tamaño de texto en la contenedor */
+    }
+
+    .contenedor div {
+        border: 3px solid #ddd; /* Añadir un borde suave */
+        font-size: 3rem; /* Ajustar tamaño de fuente */
+    }
+
+    .txt-22, .txt-23 {
+        flex-direction: row; /* Alinear iconos y textos en fila */
+        align-items: center; /* Centrar los iconos y textos */
+    }
+
+    .txt-22 i, .txt-23 i {
+        font-size: 22px; /* Ajustar tamaño de los iconos */
+    }
+
+    .txt-22 img, .txt-23 img {
+        width: 22px; /* Ajustar tamaño de las imágenes */
+        height: 22px;
+    }
+
+    .send-button {
+        padding: 12px 20px; /* Ajustar el tamaño del botón */
+    }
+
+    img {
+        max-width: 70%; /* Limitar el tamaño de la imagen */
+    }
+}

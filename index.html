@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DIGITALDELIGHT online store</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img class="imagen-logo" src="images/Captura de pantalla 2024-09-02 154145.png" id="img-logo" alt="logo">
+            <h2 class="nombre-empresa">DIGITALDELIGHT</h2>
+        </div>
+
+
+        <div class="container-user">
+            <img class="user-icon" src="images/agregar-usuario.png" alt="user">
+            <!-- User icon -->
+          
+            <!-- Login Popup -->
+            <div class="login-popup" style="display: none;">
+                <h2>Login</h2>
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Enter your email">
+          
+                <label for="password">Password:</label>
+                <input type="password" placeholder="Enter your password">
+          
+                <button class="login-button">Login</button>
+                <a href="#">Forgot my password</a>
+                <a href="#">Register</a>
+            </div>
+          
+            <!-- Shopping Cart Icon -->
+            <img class="shopping-cart-icon" src="images/anadir-al-carrito.png" alt="shopping">
+          
+            <!-- Shopping Cart Popup -->
+            <div class="content-shopping-cart" style="display: none;">
+                <h2>Shopping Cart</h2>
+                <table class="lista-shopping">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Articles</th>
+                        </tr>
+                    </thead>
+                    <tbody class="cart-items">
+                        <!-- Items in the cart will go here -->
+                    </tbody>
+                </table>
+                <a href="#" class="empty-basket">Empty Cart</a>
+            </div>
+        </div>
+        
+        
+
+        <script>
+          // Función para agregar un artículo al carrito
+function addItemToCart(name, price) {
+    const cartItems = document.querySelector('.cart-items');
+    const newRow = document.createElement('tr');
+
+    newRow.innerHTML = `
+        <td>${name}</td>
+        <td>$${price}</td>
+        <td>1</td> <!-- Asigna un valor por defecto para los artículos -->
+    `;
+
+    cartItems.appendChild(newRow);
+}
+
+// Vaciar carrito
+document.querySelector('.empty-basket').addEventListener('click', function (event) {
+    event.preventDefault(); // Previene el comportamiento predeterminado del enlace
+    const cartItems = document.querySelector('.cart-items');
+    cartItems.innerHTML = ''; // Limpia todos los artículos del carrito
+});
+
+// Alternar ventana emergente de inicio de sesión
+document.querySelector('.user-icon').addEventListener('click', function () {
+    const loginPopup = document.querySelector('.login-popup');
+    const cartPopup = document.querySelector('.content-shopping-cart'); // Asegúrate de cerrar el carrito si está abierto
+
+    loginPopup.style.display = loginPopup.style.display === 'block' ? 'none' : 'block';
+    cartPopup.style.display = 'none'; // Cierra el carrito si está abierto
+});
+
+// Alternar ventana emergente del carrito
+document.querySelector('.shopping-cart-icon').addEventListener('click', function () {
+    const cartPopup = document.querySelector('.content-shopping-cart');
+    const loginPopup = document.querySelector('.login-popup'); // Asegúrate de cerrar la ventana de inicio de sesión si está abierta
+
+    cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
+    loginPopup.style.display = 'none'; // Cierra la ventana de inicio de sesión si está abierta
+});
+
+// Cerrar ventanas emergentes al hacer clic fuera de ellas
+window.addEventListener('click', function (event) {
+    const loginPopup = document.querySelector('.login-popup');
+    const cartPopup = document.querySelector('.content-shopping-cart');
+    
+    // Comprueba si el clic se realizó fuera del contenedor
+    if (!event.target.closest('.container-user')) {
+        loginPopup.style.display = 'none';
+        cartPopup.style.display = 'none';
+    }
+});
+
+// Ejemplo de cómo agregar un artículo al carrito
+addItemToCart('Sample Product', '10.00'); // Producto de ejemplo
+
+        </script>
+            
+
+    </header>
+
+
+
+    <div class="container-navbar">
+        <nav class="navbar container">
+            <img class="bars" src="images/menu.png" id="img-menu" alt="menu">
+            <ul class="menu">
+                <li><a href="#Start">Start</a></li>
+                <li><a href="#About-us">About us</a></li>
+                <li><a href="#Categories">Categories</a></li>
+                <li><a href="#Contact-container">Contact</a></li>
+            </ul>
+            <form class="search-form">
+                <input type="search" placeholder="Buscar" />
+                <button class="btn-search">
+                    <img class="buscar" src="images/lupa.png" id="img-buscar" alt="buscar">
+                </button>
+            </form>
+        </nav>
+    </div>
+
+
+    <div class="carrousel">
+        <div class="conteCarrousel">
+            <div class="itemCarrousel" id="itemCarrousel-1">
+                <div class="itemCarrouselTarjeta">
+                    <img src="images/digital812.png" alt="item-1-carrousel">
+                </div>
+                <div class="itemCarrouselArrows">
+                    <a href="#itemCarrousel-4" class="prev-arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemCarrousel-2" class="next-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="itemCarrousel" id="itemCarrousel-2">
+                <div class="itemCarrouselTarjeta">
+                    <img src="images/atencion-cliente-online.jpg" alt="item-2-carrousel">
+                </div>
+                <div class="itemCarrouselArrows">
+                    <a href="#itemCarrousel-1" class="prev-arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemCarrousel-3" class="next-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="itemCarrousel" id="itemCarrousel-3">
+                <div class="itemCarrouselTarjeta">
+                    <img src="images/megaventa.jpg" alt="item-2-carrousel">
+                </div>
+                <div class="itemCarrouselArrows">
+                    <a href="#itemCarrousel-2" class="prev-arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemCarrousel-4" class="next-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="itemCarrousel" id="itemCarrousel-4">
+                <div class="itemCarrouselTarjeta">
+                    <img src="images/atencion-cliente-online.jpg" alt="item-4-carrousel">
+                </div>
+                <div class="itemCarrouselArrows">
+                    <a href="#itemCarrousel-3" class="prev-arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemCarrousel-1" class="next-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="conteCarrouselController">
+            <a href="#itemCarrousel-1">•</a>
+            <a href="#itemCarrousel-2">•</a>
+            <a href="#itemCarrousel-3">•</a>
+            <a href="#itemCarrousel-4">•</a>
+        </div>
+    </div>
+
+
+
+    <section id="Start">
+        <h2>Start</h2>
+        <div class="contenedor">
+            <div class="txt-1">
+                <h1>WHAT WE OFFER</h1>
+                <p>In our online store, we are dedicated to offering
+                    you a wide range of carefully selected products to suit
+                    your needs and tastes.</p>
+            </div>
+
+            <!-- Línea divisoria -->
+            <div class="linea"></div>
+
+            <div class="txt-2">
+                <h2>WHAT ARE OUR PRODUCTS LIKE</h2>
+                <p>We offer books, watches, women´s clothing,
+                    men´s clothing, toys, technology, kitchen utensils and
+                    suitcases</p>
+            </div>
+        </div>
+
+
+
+
+        <div class="ima">
+            <img class="imagen1" src="images/0001_7.jpg" alt="">
+            <img class="imagen2" src="images/th.jpeg" alt="">
+        </div>
+
+        <div class="imagenes">
+            <img class="imagen3" src="images/carrito.webp" alt="">
+            <img class="imagen4" src="images/mapa-ubicacion-.avif" alt="">
+        </div>
+
+
+
+        <div class="contactInfo">
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a
+                    href="mailto:Clientes@gmail.com">Clientes@gmail.com</a></p>
+            <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> <a href="tel:+57667345645">667-345-645</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Bogotá, Colombia</p>
+
+            <div class="onlineButton">
+                <button onclick="startChat()">Online Chat</button>
+            </div>
+
+            <div class="coupons">
+                <h3>Available Coupons</h3>
+                <ul>
+                    <li>10% off on purchases over $100 - Code: <strong>DISCOUNT10</strong></li>
+                    <li>Free shipping on your first order - Code: <strong>FREESHIP</strong></li>
+                    <li>20% off on technology - Code: <strong>TECH20</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            function startChat() {
+                alert("Starting online chat...");
+                // Here you can link to an actual chat system
+            }
+        </script>
+    </section>
+
+
+
+    <section id="About-us" class="about-us-section">
+        <h1>ABOUT US</h1>
+        <div class="about-us-container">
+            <div class="txt1-1">
+                <p>We are passionate about offering a unique and satisfying shopping experience. Since our inception, we
+                    have been committed to providing a wide selection of high-quality products that suit the needs and
+                    tastes of our customers.</p>
+            </div>
+
+            <div class="linea-1"></div> <!-- Línea divisoria -->
+
+            <div class="txt1-2">
+                <h2>OUR MISSION</h2>
+                <p>Convenience, quality and exceptional service with every purchase.</p>
+            </div>
+        </div>
+
+        <hr>
+
+
+        <div class="text-parrafos">
+            <div class="txt-3">
+                <h3>OUR COMMITMEN </h3>
+                <p>More than just a store, we are your everyday ally. We are dedicated to offering you products that
+                    simplify and enrich your life, with the confidence that every purchase made in our store meets our
+                    promise: quality, efficiency and satisfaction.</p>
+            </div>
+        </div>
+
+
+        <div class="txt-4">
+            <p>Explore our catalog and discover how we can help you find what you need, from the comfort of your
+                home. Your satisfaction is our priority, and to ensure it, we have a customer service available 24
+                hours a day, 7 days a week. We are here to make your shopping experience simple, safe and rewarding.
+        </div>
+
+        <div class="imagenes1-1"></div>
+        <img class="imagen-1-1" src="images/excelencia_en_el_servicio_al_cliente.avif" alt="">
+        <img class="imagen-2-2" src="images/servicio-al-cliente_24908-24941.avif" alt="">
+        </div>
+
+        <div class="imagenes-3">
+            <img class="imagen3-3"
+                src="images/animated-business-chat-message-icon-clipart-illustration-in-white-background-vector.jpg"
+                alt="">
+            <img class="imagen4-4" src="images/mapa-ubicacion-.avif" alt="">
+        </div>
+    </section>
+
+
+
+    <section id="Categories">
+        <h1>Categories</h1>
+        <div class="carousel-container">
+            <div class="categories-carousel">
+                <div class="category-item" data-category="cell">
+                    <img src="images/00194612200868____8__1200x1200.jpg" class="circulo" alt="Cell phones">
+                    <p>Cell phones</p>
+                </div>
+                <div class="category-item" data-category="books">
+                    <img src="images/Tipos-de-libros-300x149.jpg" class="circulo" alt="Books">
+                    <p>Books</p>
+                </div>
+                <div class="category-item" data-category="computers">
+                    <img src="images/th (1).jpeg" class="circulo" alt="Computers">
+                    <p>Computers</p>
+                </div>
+                <div class="category-item" data-category="toys">
+                    <img src="images/peluches.jpeg" class="circulo" alt="Toys">
+                    <p>Toys</p>
+                </div>
+                <div class="category-item" data-category="gifts">
+                    <img src="images/IMG-20221204-WA0070.jpg" class="circulo" alt="Gifts">
+                    <p>Gifts</p>
+                </div>
+                <div class="category-item" data-category="women_clothing">
+                    <img src="images/ropa dama.jpeg" class="circulo" alt="Women’s clothing">
+                    <p>Women’s clothing</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Obtén todas las categorías
+            const categoryItems = document.querySelectorAll('.category-item');
+        
+            // Recorre cada categoría
+            categoryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Elimina la clase 'selected' de todas las categorías
+                    categoryItems.forEach(category => {
+                        category.classList.remove('selected');
+                    });
+                    
+                    // Agrega la clase 'selected' a la categoría que se hizo clic
+                    item.classList.add('selected');
+                });
+            });
+        </script>
+
+    </section>
+
+
+        <div id="products-cell" class="products-section" style="display: none;">
+            <h2>Most Outstanding Cell phones </h2>
+            <div class="product-grid">
+                <!-- Products-1-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/71Y9bzUwm+L.jpg" alt="Cell 1">
+                    </div>
+                    <h3>Iphone 12 Mini</h3>
+                    <p> Size: 5.4 inches, Super Retina XDR display.
+                        Processor: A14 Bionic Chip, offering exceptional performance and energy efficiency.
+                        Camera: 12 MP dual camera system (ultra wide and wide angle) with night photography and 4K video
+                        recording capabilities. <br>
+                        Storage: Available in 64 GB, 128 GB and 256 GB. <br>
+                        Available colors: Black, White, Red, Green, Blue y Purple.</p>
+                    <p class="price">$2,500,000 </p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Products-2-->
+            <div class="product-card">
+                <div class="product-imagen">
+                    <img src="images/huawei.avif" alt="Cell 2">
+                </div>
+                <h3>huawei P30</h3>
+                <p> Size: 6.1 inches, Full HD+ OLED screen.
+                    Processor: Kirin 980, offering powerful and efficient performance.
+                    Camera: Triple rear camera system (40 MP wide angle, 16 MP ultra wide angle and 8 MP telephoto),
+                    with night photography and 4K video recording capabilities. <br>
+                    Storage: Available in 128 GB and 256 GB, with expansion option using NM (Nano Memory) card. <br>
+                    Available colors: Black, white, blue, and some models in gradient tones such as Breathing Crystal
+                    and Amber Sunrise.</p>
+                <p class="price">$1,500,000 </p>
+                <div class="rating">
+                    <span>★★★★☆</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Products-3-->
+            <div class="product-card">
+                <div class="product-imagen">
+                    <img src="images/Global-Version-Xiaomi-Redmi-9-6-53--4GB-64GB-Smartphone-Carbon-Grey-906588_800x.webp"
+                        alt="Cell 3">
+                </div>
+                <h3>Xiaomi Redmi 9</h3>
+                <p> Size: 6.53 inches, IPS LCD Full HD+ screen.
+                    Processor: MediaTek Helio G80, offering adequate performance for daily tasks and light gaming.
+                    Camera: Quad rear camera system (13 MP wide angle, 8 MP ultra wide angle, 5 MP macro and 2 MP
+                    depth), and 8 MP front camera. <br>
+                    Storage: Available in 32 GB and 64 GB, with the option of expansion via microSD card.<br>
+                    Available colors: Carbon Gray, Ocean Green and Sunset Purple.</p>
+                <p class="price">$600,000 </p>
+                <div class="rating">
+                    <span>★★★★☆</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Products-4-->
+            <div class="product-card">
+                <div class="product-imagen">
+                    <img src="images/S24Ultra-Color-Titanium_Grey_PC_0527_final.webp" alt="Cell 4">
+                </div>
+                <h3>Samsung Galaxy S24</h3>
+                <p> Size: 6.8 inches, Dynamic AMOLED 2X screen with QHD+ resolution and 120 Hz refresh rate.
+                    Processor: Exynos 2400 or Snapdragon 8 Gen 3 (depending on region), offering exceptional performance
+                    and energy efficiency.
+                    Camera: Quad rear camera system (200 MP main, 12 MP ultra wide angle, 10 MP telephoto and 10 MP
+                    periscope), with advanced photography and 8K video recording capabilities. <br>
+                    Storage: Available in 256 GB, 512 GB and 1 TB, without expansion option via microSD card.<br>
+                    Available colors: Black, white, green, and some models in exclusive tones such as blue and
+                    gold.</p>
+                <p class="price">$5,000,000 </p>
+                <div class="rating">
+                    <span>★★★★☆</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Products-5-->
+            <div class="product-card">
+                <div class="product-imagen">
+                    <img src="images/images (3).jpg" alt="Cell 5">
+                </div>
+                <h3>Nokia G50</h3>
+                <p> Size: 6.82 inches, IPS LCD HD+ screen.
+                    Processor: Qualcomm Snapdragon 480, which offers adequate performance for daily tasks and 5G
+                    connectivity.
+                    Camera: Triple rear camera system (48 MP main, 5 MP ultra wide angle and 2 MP depth), and 8 MP front
+                    camera. <br>
+                    Camera: Quad rear camera system (200 MP main, 12 MP ultra wide angle, 10 MP telephoto and 10 MP
+                    periscope), with advanced photography and 8K video recording capabilities. <br>
+                    Storage: Available in 64 GB and 128 GB, with the option of expansion via microSD card.<br>
+                    Available colors: Night (black) and ocean (blue).</p>
+                <p class="price">$1,200,000 </p>
+                <div class="rating">
+                    <span>★★★☆☆</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Products-6-->
+            <div class="product-card">
+                <div class="product-imagen">
+                    <img src="images/Apple_new-iphone-se-white_04152020_big.jpg.large.jpg" alt="Cell 6">
+                </div>
+                <h3>IPhone SE 2</h3>
+                <p> Size: 4.7 inches, Retina HD display.
+                    Processor: A13 Bionic Chip, which offers powerful and efficient performance, similar to that of the
+                    iPhone 11.
+                    Camera: 12 MP rear camera with advanced photography and 4K video recording capabilities, and 7 MP
+                    front camera. <br>
+                    Camera: Quad rear camera system (200 MP main, 12 MP ultra wide angle, 10 MP telephoto and 10 MP
+                    periscope), with advanced photography and 8K video recording capabilities. <br>
+                    Storage: Available in 64 GB, 128 GB and 256 GB.<br>
+                    Available colors: Black and white</p>
+                <p class="price"> $2,000,000 </p>
+                <div class="rating">
+                    <span>★★★★☆</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Products-7-->
+            <div class="product-card">
+                <div class="product-imagen">
+                    <img src="images/8plus_and_8_glass_back_big.jpg.large.jpg" alt="Cell 7">
+                </div>
+                <h3>IPhone 8 and 8 Plus</h3>
+                <p> iphone 8: Tamaño: 4.7 pulgadas, pantalla Retina HD.
+                    Procesador: Chip A11 Bionic, que ofrece un rendimiento sólido y eficiencia energética.
+                    Cámara: Cámara trasera de 12 MP con estabilización óptica y grabación de video en 4K, y cámara
+                    frontal de 7 MP. <br>
+                    Storage: Available in 64 GB and 256 GB.<br>
+                    Available colors: Silver, gold and space gray.</p>
+                <p> iphone 8 plus: Size: 5.5 inches, Retina HD display.
+                    Processor: A11 Bionic Chip, same as iPhone 8, offering powerful performance.
+                    Camera: Dual rear camera system (12 MP wide angle and 12 MP telephoto) with portrait mode and 4K
+                    video recording, and 7 MP front camera.<br>
+                    Storage: Available in 64 GB and 256 GB.<br>
+                    Available colors: Silver, gold and space gray</p>
+                <p class="price"> $3,200,000 </p>
+                <div class="rating">
+                    <span>★★★★☆</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Cuadro "Ver más" con flecha -->
+            <div class="ver-mas">
+                <p>Ver más</p>
+                <div class="flecha"></div>
+            </div>
+        </div>
+        
+
+
+
+
+
+
+        <div id="products-books" class="products-section" style="display: none;">
+            <h2>Most Outstanding Books</h2>
+            <div class="product-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/3562564fa1fe7f54ea5b0463455dc179.webp" alt="Book 1">
+                    </div>
+                    <h3>Saga My Fault and Our Fault</h3>
+                    <p>Collection: Fiction<br>
+                        Author(s): Mercedes Ron<br>
+                        Edition: 1a. ed. (03/06/2021)<br>
+                        Language: Spanish<br>
+                        Genre: Romantic</p>
+                    <p class="price">$91,870</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/th (2).jpeg" alt="Book 2">
+                    </div>
+                    <h3>Chronicles of the Shadowhunters</h3>
+                    <p>Author(s): Cassandra Clare<br>
+                        Genre: Contemporary Fantasy<br>
+                        Language: English</p>
+                    <p class="price">$264,890</p>
+                    <div class="rating">
+                        <span>★★★☆☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ffecaba38f22e8d748e8472358d3e124.webp" alt="Book 3">
+                    </div>
+                    <h3>It</h3>
+                    <p>Author: Stephen King<br>
+                        Genre: Horror<br>
+                        Release Date: 1986</p>
+                    <p class="price">$59,900</p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/41P+oBySEIL._UX250_.jpg"
+                            alt="Book 4">
+                    </div>
+                    <h3>The Fault in Our Stars</h3>
+                    <p>Author: John Green
+                        Genre: Young Adult, Romance
+                        Release Date: 2012</p>
+                    <p class="price">$50,000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Producto 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/images (5).jpg" alt="Book 5">
+                    </div>
+                    <h3>the protector</h3>
+                    <p>Author: Jodi Ellen Malpas <br>
+                        Genre: Romance, Contemporary Fiction<br>
+                        Release Date: 2023</p>
+                    <p class="price">$ 60,000 COP and $70,000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/libro5.webp" alt="Book 6">
+                    </div>
+                    <h3>saga to all the boys i've loved before</h3>
+                    <p>Author: Jenny Ham<br>
+                        Genre: romance<br>
+                        Release Date: To All the Boys I've Loved Before - Posted on April 15, 2014.
+                        P.S. I Still Love You - Posted on May 26, 2015.
+                        Always and Forever, Lara Jean - Posted on May 2, 2017​</p>
+                    <p class="price">$165,000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Producto 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/images (4).jpg" alt="Book 7">
+                    </div>
+                    <h3>The visitor</h3>
+                    <p>Author: Stephen King<br>
+                        Genre: horror, suspense and thriller<br>
+                        Release Date:September 10, 2019</p>
+                    <p class="price">$189,535</p>
+                    <div class="rating">
+                        <span>★★★☆☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Producto 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/9099c5c85b5a10cd87ee1e3e36edb621.webp" alt="Book 8">
+                    </div>
+                    <h3>Imaginary Friend</h3>
+                    <p>Author: Stephen Chbosky<br>
+                        Genre: Horror Fiction<br>
+                        Release Date: October 1, 2019</p>
+                    <p class="price">$65,000</p>
+                    <div class="rating">
+                        <span>★★★☆☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+
+            <!-- Cuadro "Ver más" con flecha -->
+            <div class="ver-mas">
+                <p>Ver más</p>
+                <div class="flecha"></div>
+            </div>
+        </div>
+
+
+
+
+        <div id="products-computers" class="products-section" style="display: none;">
+            <h2>Most Outstanding Computers </h2>
+            <div class="product-grid">
+                <!-- Products-1-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/gldn-93F29L0WK8JK-VN900407-Asus-TUF-A15-Gaming-Laptop-HighlightHero_VP2-859x540.avif"
+                            alt="Computer 1">
+                    </div>
+                    <h3>Portable ASUS TUF Gaming A15</h3>
+                    <p> Size: 15.6-inch screen, with Full HD resolution options (1920 x 1080) and refresh rate up to 144
+                        Hz.Processor: AMD Ryzen 5 or Ryzen 7, offering solid performance for gaming and multitasking.
+                        Graphics Card: NVIDIA GeForce GTX 1650 or RTX 3060, depending on the model, ideal for games and
+                        graphic applications. <br>
+                        RAM: Generally available with 8 GB or 16 GB, expandable. <br>
+                        Storage: 512GB or 1TB SSD options. <br>
+                        Construction: Robust and durable design, with MIL-STD-810H military certification, resistant to
+                        shocks and extreme temperatures.</p>
+                    <p class="price">$5,000,000 </p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+
+                <!-- Products-2-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/1-1.jpg" alt="Computer 2">
+                    </div>
+                    <h3>Portable HP Victus Gaming con Intel® Core™ i5</h3>
+                    <p>Size: 15.6-inch screen, with Full HD resolution options (1920 x 1080) and refresh rate up to 144
+                        Hz.
+                        Processor: 11th or 12th generation Intel® Core™ i5, delivering solid performance for gaming and
+                        multitasking.
+                        Graphics Card: NVIDIA GeForce GTX 1650 or RTX 3050, depending on the model, ideal for games and
+                        graphic applications. <br>
+                        RAM: Generally available with 8 GB or 16 GB, expandable. <br>
+                        RAM: Generalmente disponible con 8 GB o 16 GB, ampliable.
+                        Almacenamiento: Opciones de SSD de 512 GB o 1 TB <br>
+                        Construction: Modern and attractive design, with an efficient cooling system to maintain
+                        performance during long gaming sessions.</p>
+                    <p class="price">$4,500,000 </p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-3-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/lenovo-monitor-ideacentre-aio-3-27-intel-subseries-gallery-6.avif"
+                            alt="Computer 3">
+                    </div>
+                    <h3>Computer All In One LENOVO IdeaCentre AIO 3 27</h3>
+                    <p> Size: 27-inch screen, with Full HD resolution (1920 x 1080) and IPS technology for better
+                        viewing angles and vibrant colors.
+                        Processor: Options of AMD Ryzen 5 or Intel® Core™ i5 processors, offering adequate performance
+                        for daily tasks and multitasking.
+                        Graphics Card: Integrated AMD Radeon or Intel UHD graphics, depending on model. <br>
+                        RAM: Generally available with 8 GB or 16 GB, expandable.
+                        Storage: Options of 512 GB SSD or 1 TB HDD, allowing a good balance between speed and
+                        capacity.<br>
+                        Construction: Sleek, modern design, with a slim profile that saves desktop space and a sturdy
+                        base.
+                    </p>
+                    <p class="price">$4,500,000 </p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-4-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/apple-macbook-air-13-m3-.webp" alt="Computer 4">
+                    </div>
+                    <h3>MacBook Air de 13</h3>
+                    <p> Size: 13.3-inch Retina display with 2560 x 1600 resolution, offering vibrant colors and great
+                        clarity.
+                        Processor: Apple M1 or M2, providing exceptional performance and energy efficiency.
+                        Graphics Card: Integrated Apple graphics, optimized for graphics tasks and light gaming
+                        performance. <br>
+                        RAM: Available with 8 GB or 16 GB.
+                        Storage: 256GB, 512GB, 1TB, or 2TB SSD options.<br>
+                        Construction: Slim and lightweight design, with a recycled aluminum chassis, ideal for
+                        portability.
+                    </p>
+                    <p class="price">$6,000,000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-5-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/827F7LA-4_T1711575157.avif" alt="Computer 5">
+                    </div>
+                    <h3>Computer Portable 2 en 1 HP Pavilion 14</h3>
+                    <p> Size: 14-inch touch screen, with Full HD resolution (1920 x 1080), ideal for multimedia use and
+                        work.
+                        Processor: Options of 11th or 12th generation Intel® Core™ i5 or i7 processors, offering solid
+                        performance for multitasking.
+                        Graphics Card: Integrated Intel Iris Xe graphics, suitable for daily tasks and some graphics
+                        applications. <br>
+                        RAM: Generally available with 8 GB or 16 GB.
+                        Storage: 256GB, 512GB or 1TB SSD options, providing speed and enough space.<br>
+                        Construction: Elegant and lightweight design, with a hinge that allows it to be used in tablet
+                        or laptop mode, ideal for portability and versatility.
+                    </p>
+                    <p class="price">$4,500,000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-6-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/71r+rykDo2L._AC_UF894,1000_QL80_.jpg" alt="Computer 6">
+                    </div>
+                    <h3>Computer Portable ACER ASPIRE GO 15.6</h3>
+                    <p> Size: 15.6-inch screen, with Full HD resolution (1920 x 1080), ideal for viewing multimedia
+                        content and working.
+                        Processor: Options of Intel® Core™ i5 or AMD Ryzen 5 processors, providing adequate performance
+                        for daily tasks and multitasking.
+                        Graphics Card: Integrated Intel UHD or AMD Radeon graphics, suitable for general use and some
+                        graphics applications. <br>
+                        RAM: Generally available with 8 GB or 12 GB, expandable on some models.
+                        Storage: Options of 256 GB SSD or 1 TB HDD, offering a combination of speed and capacity.<br>
+                        Construction: Slim and light design, with a modern finish that facilitates portability.
+                    </p>
+                    <p class="price">$3,500,000 </p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-7-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/lenovo-laptops-yoga-yoga-c-series-7i.avif" alt="Computer 7">
+                    </div>
+                    <h3>Portable Lenovo Yoga 7i</h3>
+                    <p> Size: 14-inch touch screen, with Full HD (1920 x 1080) or 4K (3840 x 2160) resolution, offering
+                        vibrant colors and excellent clarity.
+                        Processor: Options of 11th or 12th generation Intel® Core™ i5 or i7 processors, providing
+                        powerful performance for multitasking and demanding applications.
+                        Graphics Card: Integrated Intel Iris Xe graphics, suitable for daily tasks and some graphics
+                        applications. <br>
+                        RAM: Generally available with 8 GB or 16 GB.
+                        Storage: 256GB, 512GB or 1TB SSD options, providing speed and enough space for files.<br>
+                        Construction: 2-in-1 convertible design, with 360-degree hinge that allows it to be used in
+                        laptop, tablet, store or presentation mode. Made from premium materials, giving it a sleek and
+                        modern look.<br>
+                    </p>
+                    <p class="price">$6,000,000 </p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+
+            <!-- Cuadro "Ver más" con flecha -->
+            <div class="ver-mas">
+                <p>Ver más</p>
+                <div class="flecha"></div>
+            </div>
+        </div>
+
+
+
+        <div id="products-toys" class="products-section" style="display: none;">
+            <h2>Most Outstanding Toys </h2>
+            <div class="product-grid">
+                <!-- Products-1-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/db7ec8ff20d02b05c249fea95c6af00f.jpg" alt="Toys 1">
+                    </div>
+                    <h3>Sullivan Plush</h3>
+                    <p> Size: Plush about 30cm high, ideal for hugging and playing.
+                        Material: Made of high-quality and soft materials, child-friendly and easy to clean.
+                        Design: Inspired by the character Sullivan from the movie "Monsters, Inc.", with colorful
+                        details and distinctive features that make it recognizable and attractive. <br>
+                    </p>
+                    <p class="price">$80,000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- Products-2-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/camion-volquete-juguete-amarillo-neumaticos-grandes-sobre-ai-generativo-fondo-blanco_958192-4305.avif"
+                            alt="Toys 2">
+                    </div>
+                    <h3>dump truck</h3>
+                    <p> It is a small truck designed for children. <br>
+                        Features: durable plastic material.<br>
+                        Size 30cm <br>
+                        Colors: red, yellow, green and blue <br>
+                    </p>
+                    <p class="price">$52.900</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-3-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/juguete_Armo_todo_Didactico__Super_bloques_grandes_SUPERBLOQUES_para_ninos_mayores_de_3_anos.jpg"
+                            alt="Toys 3">
+                    </div>
+                    <h3>Armathod</h3>
+                    <p> It is a type of construction toy, it comes with plastic parts, the purpose of encouraging
+                        creativity. <br>
+                        Features: plastic material, parts: includes a variety of parts.<br>
+                    </p>
+                    <p class="price">$70.000 </p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <!-- Products-4-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/81nxiddYmDL.jpg" alt="Toys 4">
+                    </div>
+                    <h3>RC Stunt Car with Gesture Sensing, Hand Controlled Remote Control Car with 360° Rotating Stunt
+                        Car</h3>
+                    <p> Hand Gesture Master: Experience the thrill of controlling a high-performance racing car with
+                        simple hand gestures. This hand-controlled car and hand-controlled car is designed for intuitive
+                        play, making it one of the best toys for kids ages 8 and up. <br>
+                        Stunt champion: Immerse yourself in endless fun with our drift car toy that features 360°
+                        rotations, full drifts and double-sided driving. The stunt rc car mode seamlessly switches
+                        between on-road and off-road terrains, ensuring action-packed playtime.<br>
+                        Adventures by night and day: Light up your playtime with bright lights and immersive music. This
+                        hand gesture remote control car comes with a rechargeable battery, ensuring hours of non-stop
+                        fun, both indoors and outdoors.<br>
+                    </p>
+                    <p class="price">$136.079 </p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-5-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/D_NQ_NP_633124-MLU75110968329_032024-O.webp" alt="Toys 5">
+                    </div>
+                    <h3>LEGO Technic Mercedes-AMG F1 W14 E Performance</h3>
+                    <p> Build and display a Mercedes F1 car model – this LEGO Technic Mercedes-AMG F1 W14 E Performance
+                        building kit for adults is packed with authentic details of the 2023 car to delight motorsport
+                        fans <br>
+                        Try the steering: Features include slippery tires, plus steering that can be controlled with the
+                        steering wheel or the knob on top of the car.<br>
+                        Authentic features and details: Features include the differential and 6-cylinder engine with its
+                        moving pistons, plus the opening wing inspired by the real-world car's DRS<br>
+                    </p>
+                    <p class="price">$1.442.900</p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-6-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/304035-1.webp" alt="Toys 6">
+                    </div>
+                    <h3>Otter Bedtime</h3>
+                    <p> It is a soft and adorable plush ideal for children and babies, promoting a calm and comforting
+                        environment before sleeping. <br>
+                        Soothing musical otter with 'breathing' movement for babies from birth
+                        11 sensory discoveries to encourage baby's senses of sight, hearing and touch
+                        The otter imitates the movement of your breathing to naturally calm your baby
+                        You can customize more than 30 minutes of music and sounds, volume control and soft lights
+                        Extremely soft fabric, machine washable (electronic elements must be removed), Material:
+                        plastic.<br>
+                    </p>
+                    <p class="price">$259.900 </p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-7-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/50acf002-49c.webp" alt="Toys 7">
+                    </div>
+                    <h3>wooden puzzle</h3>
+                    <p> They are great for helping children develop fine motor skills, hand-eye coordination, and
+                        problem solving. These puzzles usually have large, easy-to-grip pieces, with colorful and
+                        attractive illustrations for children.
+                        Designed for children from 1 to 3 years old.<br>
+                    </p>
+                    <p class="price">$88.020</p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+
+            <!-- Cuadro "Ver más" con flecha -->
+            <div class="ver-mas">
+                <p>Ver más</p>
+                <div class="flecha"></div>
+            </div>
+        </div>
+
+
+       
+
+        <div id="products-gifts" class="products-section" style="display: none;">
+            <h2>Most Outstanding gifts </h2>
+            <div class="product-grid">
+                <!-- Products-1-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/il_fullxfull.3036676745_lzg0.avif" alt="Girfs 1">
+                    </div>
+                    <h3>Bears with personalized togas</h3>
+                    <p> Personalized bears with your name and graduation year.
+                        Available color of bears: white, brown and beige. <br>
+                        cap and gown color: blue, red, yellow, green and black. <br>
+                    </p>
+                    <p class="price">$70.000</p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-2-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/57be71589d6e4535b56f55ab3e0daf56.jpeg_720x720q80.jpg" alt="Girfs 2">
+                    </div>
+                    <h3>Floral arrangements with bouquet ribbons</h3>
+                    <p> Cute and beautiful detail with eternal flowers with satin ribbon. <br>
+                        Available colors: pink, blue, yellow and purple. <br>
+                    </p>
+                    <p class="price">$30.000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+
+                <!-- Products-3-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/oso_de_fomi_y_rosa_.jpg" alt="Girfs 3">
+                    </div>
+                    <h3>Foami Bear and Preserved Rose</h3>
+                    <p> Bear with foam flowers and preserved rose this is a beautiful gift which with proper care can
+                        last more than a year, it must be kept in the glass dome and box for proper conservation. <br>
+                        Contains: preserved rose, glass urn, wooden base, foami bear with box, silk bow, personalized
+                        card <br>
+                        Available colors of the rose: red, blue, purple, pink and yellow.
+                        Bear colors available: white, beige, brown and gray. <br>
+                    </p>
+                    <p class="price">$399,900</p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-4-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/oso-rosas-foam-con-caja-de-regalo-original-rose.jpg" alt="Girfs 4">
+                    </div>
+                    <h3>Fomi Flower Bear 15 Cm Plush Toy with Luxury Case and Led Light</h3>
+                    <p> Artificial rose bear 15cm x 12cm
+                        Original gift for lovers, gift of love and friendship, anniversary gift, Mother's Day gift,
+                        birthday, Christmas. <br>
+                        Fomi artificial flower bear in blue, pink or red (fomi roses) with bow on the neck.
+                        Decorative foam bear for any room in the home. Unique gift made of artificial roses.<br>
+                    </p>
+                    <p class="price">$100.999</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+
+                <!-- Products-5-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/cesta-cumpleanos-globos-p.webp" alt="Girfs 5">
+                    </div>
+                    <h3>Surprise gifts with birthday balloons</h3>
+                    <p> Basket with sweet balloons, stuffed animal, a sign and ribbon <br>
+                        Available colors of the bear: dark brown, beige, white; Available balloon colors: gold, pink,
+                        purple, blue, silver<br>
+                    </p>
+                    <p class="price">$200.000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+
+                <!-- Products-6-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/espumante-hombre.png" alt="Girfs 6">
+                    </div>
+                    <h3>Detail of combined boxes</h3>
+                    <p> This Gift consisting of: 200ml wine, Personalized Champagne Glass, 40g Hershey chocolate,
+                        Tripack of Ferrero Rocher Chocolates, Presented in a box, personalized lid with name, a bow and
+                        a dedication card. <br>
+                    </p>
+                    <p class="price">$105.000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- Products-7-->
+                <div class="product-card">
+                    <div class="product-imagen">
+                        <img src="images/images.jpg" alt="Girfs 7">
+                    </div>
+                    <h3>candy box</h3>
+                    <p> Black wooden box with the message you want.
+                        They come with lights, photos, candy of choice and a ribbon. <br>
+                    </p>
+                    <p class="price">$90.000</p>
+                    <div class="rating">
+                        <span>★★★★☆</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+
+            <div div id="products-women-clothing" class="products-section" style="display: none;">
+                <h2>Most Outstanding Women’s clothing</h2>
+                <div class="product-grid">
+                    <!-- Products-1-->
+                    <div class="product-card">
+                        <div class="product-imagen">
+                            <img src="images/sacos-para-mujer-30330518-0290_1.jpg" alt="woment´s 1">
+                        </div>
+                        <h3>Long Sleeve Jacket With Stripes</h3>
+                        <p> Long-sleeved jacket with decorative buttons on wide cuffs, it has stripes that make you look
+                            calmer, you can wear it with your favorite clothes on the weekends. <br>
+                        </p>
+                        <p class="price">$159.900</p>
+                        <div class="rating">
+                            <span>★★★★☆</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+    
+                    <!-- Products-2-->
+                    <div class="product-card">
+                        <div class="product-imagen">
+                            <img src="images/falda-short-para-mujer-en-indigo-con-proceso-fergie.jpg" alt="woment´s 2">
+                        </div>
+                        <h3>Short skirt</h3>
+                        <p> Short skirt for women, high waist, pockets, clear process with rips and frayed hem <br>
+                        </p>
+                        <p class="price">$98.000</p>
+                        <div class="rating">
+                            <span>★★★☆☆</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+    
+                    <!-- Products-3-->
+                    <div class="product-card">
+                        <div class="product-imagen">
+                            <img src="images/bb69d856bc109.jpg" alt="woment´s 3">
+                        </div>
+                        <h3>corset blouses</h3>
+                        <p> The corset offers you an irresistible dose of elegance and sensuality.
+                            This corset is designed to enhance your beauty in all its splendor. Available in blue and white,
+                            choose your favorite shade and dazzle on any occasion. <br>
+                        </p>
+                        <p class="price">$25.0000</p>
+                        <div class="rating">
+                            <span>★★★★★</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+    
+                    <!-- Products-4-->
+                    <div class="product-card">
+                        <div class="product-imagen">
+                            <img src="images/falda-para-mujer.jpg" alt="woment´s 4">
+                        </div>
+                        <h3>plaid skirt</h3>
+                        <p> Skirt for women, a design that is differentiated by its white and black fabric printed with
+                            pleats throughout the skirt plus an invisible zipper on the side of soft material. <br>
+                        </p>
+                        <p class="price">$145.000</p>
+                        <div class="rating">
+                            <span>★★★★☆</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+    
+                    <!-- Products-5-->
+                    <div class="product-card">
+                        <div class="product-imagen">
+                            <img src="images/jean.jpg" alt="woment´s 5">
+                        </div>
+                        <h3>jogger jean with ripped process</h3>
+                        <p> Relaxed cut and elastic at the waist and ankles, offering a comfortable and flexible fit. <br>
+                            The design includes strategic ripped details on the legs for a fresh touch.
+                            They are perfect for your casual look, ideal to combine with sneakers and a t-shirt or
+                            sweatshirt.
+    
+                        </p>
+                        <p class="price">$180.000</p>
+                        <div class="rating">
+                            <span>★★★★★</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+    
+                    <!-- Products-6-->
+                    <div class="product-card">
+                        <div class="product-imagen">
+                            <img src="images/828143arjpg.jpg" alt="woment´s 6">
+                        </div>
+                        <h3>Pants and short shirt blouse</h3>
+                        <p> This outfit makes you look good,
+                            with functional pockets on the sides and a short-sleeved shirt blouse. Made of soft textile with
+                            delicate texture. <br>
+                            Available colors: rosewood, purple and white <br>
+                        </p>
+                        <p class="price">$190.000</p>
+                        <div class="rating">
+                            <span>★★★★☆</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+    
+                    <!-- Products-7-->
+                    <div class="product-card">
+                        <div class="product-imagen">
+                            <img src="images/images (2).jpg" alt="woment´s 7">
+                        </div>
+                        <h3>Sports set</h3>
+                        <p> Oversized white t-shirt with soft letters and lycra shorts, so you can wear to the gym or play
+                            sports. <br>
+                            Colors available in black, green and blue shorts. <br>
+                        </p>
+                        <p class="price">$100.000</p>
+                        <div class="rating">
+                            <span>★★★★★</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+    
+                <!-- Cuadro "Ver más" con flecha -->
+                <div class="ver-mas">
+                    <p>Ver más</p>
+                    <div class="flecha"></div>
+                </div>
+            </div>
+
+
+    
+
+       
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+    const categoryItems = document.querySelectorAll(".category-item");
+    const productSections = document.querySelectorAll(".products-section");
+
+    categoryItems.forEach(item => {
+        item.addEventListener("click", function () {
+            // Obtener la categoría seleccionada
+            const category = this.getAttribute("data-category");
+
+            // Ocultar todas las secciones de productos
+            productSections.forEach(section => {
+                section.style.display = "none"; // Oculta todas las secciones
+                section.classList.remove("active"); // Remueve cualquier clase activa
+            });
+
+            // Mostrar la sección correspondiente a la categoría
+            const activeSection = document.querySelector(`#products-${category}`);
+            if (activeSection) {
+                activeSection.style.display = "block";
+                activeSection.classList.add("active");
+            }
+
+            // Remover la clase "selected" de todas las categorías
+            categoryItems.forEach(cat => cat.classList.remove("selected"));
+
+            // Añadir la clase "selected" a la categoría activa
+            this.classList.add("selected");
+        });
+    });
+
+    // Mostrar por defecto la primera categoría
+    if (categoryItems.length > 0) {
+        categoryItems[0].click();
+    }
+});
+            </script>
+   
+
+
+
+
+
+        
+        <section id="Contact-container">
+            <!-- Cuadro único para toda la sección de contacto -->
+            <div class="contact-box">
+                <div class="contact-co">
+                    <div class="txt-12">
+                        <h1>CONTACT</h1>
+                        <p>Phone: 667-345-645, 8545675</p>
+                    </div>
+        
+                    <!-- Línea divisoria -->
+                    <div class="linea"></div>
+        
+                    <div class="txt-21">
+                        <h2>SOCIAL</h2>
+                    </div>
+        
+                    <div class="txt-22">
+                        <i class="fa-brands fa-facebook"></i>
+                        <img class="facebook" src="images/facebook.png" id="facebook-icon" alt="facebook">
+                        <p>https://www.facebook.com/DigitalDelight</p>
+                    </div>
+                    <div class="txt-23">
+                        <i class="fa-brands fa-instagram"></i>
+                        <img class="instagram" src="images/instagram.png" id="instagram-icon" alt="instagram">
+                        <p>Instagram: https://www.instagram.com/DigitalDelight</p>
+                    </div>
+                    <div class="txt-24">
+                        <i class="fa-solid fa-envelope"></i>
+                        <img class="E-mail" src="images/gmail.png" id="E-mail-icon" alt="gmail">
+                        <p>E-mail: ClientesDigitalDelight@gmail.com, atencionDigitalDelight@gmail.com</p>
+                    </div>
+                </div>
+        
+                <hr>
+        
+                <!-- Formulario de contacto dentro del mismo cuadro -->
+                <div class="text-contact">
+                    <div class="txt-contact1">
+                        <h3>CONTACT US:</h3>
+                        <table>
+                            <tr>
+                                <td>Name:</td>
+                                <td><input type="text" id="name" name="name" required></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input type="email" id="email" name="email" required></td>
+                            </tr>
+                            <tr>
+                                <td>Messages:</td>
+                                <td><textarea id="message" name="message" rows="4" required></textarea></td>
+                            </tr>
+                        </table>
+                        <button class="send-button">Send</button>
+                    </div>
+                </div>
+        
+                <div class="txt-contac2">
+                    <i class="fa-solid fa-map"></i>
+                    <p>Address: 100th Street, number 89, 11th floor, Bogotá D.C., Colombia</p>
+                </div>
+        
+                <img src="images/Captura de pantalla 2024-09-02 212551.png" alt="Contact Image">
+            </div>
+        </section>
+    </header>   
+</body>
